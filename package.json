@@ -1,0 +1,21 @@
+{
+  "name": "calendar-ts",
+  "version": "1.0.0",
+  "description": "TypeScript Calendar Control",
+  "main": "app.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/handsome-b-wonderful/calendar-ts.git"
+  },
+  "author": "handsome-b-wonderful",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.7.2"
+  },
+  "files": [
+    "dist/**/*"
+  ]
+}

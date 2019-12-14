@@ -1,0 +1,137 @@
+.calendar-main {
+    width: 400px;
+}
+
+    .calendar-main a {
+        color: #ea882b;
+    }
+
+    .calendar-main svg {
+        fill: #ea882b;
+    }
+
+.calendar-dateheader {
+    position: relative;
+    width: 66%;
+    min-width: 100px;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden;
+}
+
+    .calendar-dateheader .calendar-today {
+        position: relative;
+        float: left;
+        width: calc(100% - 40px);
+        margin: auto;
+        text-align: center;
+    }
+
+.calendar-nav {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+}
+
+    .calendar-nav:hover {
+        cursor: pointer;
+    }
+
+        .calendar-nav:hover svg {
+            fill: #ea882b;
+        }
+
+.calendar-previous {
+    float: left;
+}
+
+.calendar-next {
+    float: right;
+}
+
+.calendar-daysofweek, .calendar-days {
+    padding-left: 0;
+}
+
+.calendar-dayofweek, .calendar-day {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+}
+
+.calendar-day {
+    border: 1px solid #eee;
+}
+
+.calendar-day.clickable:hover{
+    cursor: pointer;
+    background-color: #eee;
+  }
+
+    .calendar-day.calendar-today .calendar-number {
+        background: #ea882b;
+        color: #fff;
+    }
+
+    .calendar-day.disabled-day {
+        opacity: 0.66;
+        background: #e1dcda;
+    }
+
+    .calendar-day.calendar-next-month, .calendar-day.calendar-previous-month {
+        opacity: 0.33;
+    }
+
+.calendar-number {
+    position: relative;
+    margin: 0;
+    padding: 10px;
+}
+
+.calendar-number:hover .calendar-title {
+    display: block;
+}
+
+.calendar-title::before {
+    content: '';
+    position: absolute;
+    top: -7.5px;
+    left: 10px;
+    width: 0;
+    height: 0;
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
+    border-bottom: 7.5px solid #ccc;
+}
+
+.calendar-event-count {
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    margin-top: 2px;
+    background: #ea882b;
+    border: 1px solid #ea882b;
+    color: #fff;
+    font: 11px Arial, sans-serif;
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+}
+
+.calendar-event-count-inverted {
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    margin-top: 2px;
+    background: #fff;
+    border: 1px solid #fff;
+    color: #ea882b;
+    font: 11px Arial, sans-serif;
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+}
