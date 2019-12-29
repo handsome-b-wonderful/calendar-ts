@@ -6,7 +6,7 @@ const element = document.getElementById("calendar") || document.body;
 
 const calendar = new model.Calendar(element, {
     onChange: function (date: Date) {
-        
+
         // month changed
         console.log(date.toString());
     },
@@ -23,10 +23,23 @@ const calendar = new model.Calendar(element, {
 // disable weekends
 calendar.disabledDays = [0, 6];
 
-// add some events for Decemeber
+function daysInMonth(year: number, month: number): number {
+    if (month == 11) {
+        return new Date(year + 1, 0, 0).getDate();
+    }
+
+    return new Date(year, month + 1, 0).getDate();
+}
+
+// add some events (use current month)
 const items = [];
+const calendarDate = new Date();
+const year = calendarDate.getFullYear();
+const month = calendarDate.getMonth();
+const maxDays = daysInMonth(year, month);
+
 for (let i = 0; i < 10; i++) {
-    let item = new events.CalendarItem("id_" + i, new Date(2019, 11, Math.floor(Math.random() * 31 + 1)));
+    let item = new events.CalendarItem("id_" + i, new Date(year, month, Math.floor(Math.random() * maxDays + 1)));
     item.description = item.id + " description";
     item.duration = Math.floor(Math.random() * 60 + 1);
     items.push(item);

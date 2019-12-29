@@ -3,6 +3,21 @@
 A light-weight, simple calendar library used in the Marigold relationship management application.
 
 
+## Building the Calendar
+
+Start by cloning the repository. The only dependency is TypeScript 3.7 which you probably want to install globally:
+
+`npm install -g typescript`
+
+To build the calendar:
+
+`npm run build`
+
+The `tsconfig.json` specifies `dist/js/` as the output folder. If you change this update the reference in `index.html` as well.
+
+`require.js` is used to load modules. A CDN version is referenced in `index.html` to make initial setup easier.
+
+
 ## Using the Calendar
 
 Define the target element where the calendar will be rendered
@@ -22,7 +37,7 @@ const calendar = new model.Calendar(element, {
     },
     onClick: function (date: Date, items: events.CalendarItem[]) {
 
-        // called when a non-disabled day is clicked - you get an array of this day's events
+        // called when a non-disabled day is clicked - you get an array of the day's events (if any)
         console.log("you clicked " + date.toString() + " which has " + items?.length + " item(s)");
     }
 });
@@ -39,14 +54,15 @@ calendar.disabledDays = [0, 6];
 Add events
 
 ```TypeScript
-// add some events for Decemeber
 const items = [];
-for (let i = 0; i < 10; i++) {
-    let item = new events.CalendarItem("id_" + i, new Date(2019, 11, Math.floor(Math.random() * 31 + 1)));
-    item.description = item.id + " description";
-    item.duration = Math.floor(Math.random() * 60 + 1);
-    items.push(item);
-}
+
+// add your events
+let item = new events.CalendarItem("id", new Date(year, month, day));
+item.description = "description";
+item.duration = 30;
+items.push(item);
+...
+
 calendar.model = items;
 ```
 
@@ -55,7 +71,9 @@ Update any styles in `css/calendar.css`
 Display the calendar, optionally setting the displayed month (default: current month) and today (default: current day)
 
 ```TypeScript
-// render December 2019 and make the 25th Today
+// render (defaults to current month/day)
+
+// show December 2019 and make the 25th "Today"
 calendar.render(new Date(2019, 11, 1), new Date(2019, 11, 25));
 ```
 
@@ -69,9 +87,13 @@ calendar.render(new Date(2019, 11, 1), new Date(2019, 11, 25));
 * The calendar uses `require.js` for module support (add to the lib folder or update your deployment accordingly).
 
 
-## TODO's
+## TODO
 
 * Highlight the current (clicked) day
-* Add a wait/loading indicator for use during data retrieval
-* Add configuration options and events as required
+* Add a wait/loading indicator for during data retrieval
+* Add id property to calendar event
+* Add status property to calendar event (and styles to differentiate display)
 * Refactor towards idiomatic TypeScript
+* Build to a JavaScript library for easier integration with existing projects
+* Minify JavaScript and CSS files
+
