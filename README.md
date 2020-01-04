@@ -85,15 +85,3 @@ calendar.render(new Date(2019, 11, 1), new Date(2019, 11, 25));
 * Calendar events are instances of the `CalendarItem` class.
 * You can define all of your events up front or load them on demand for each month in your `onChange` function.
 * The calendar uses `require.js` for module support (add to the lib folder or update your deployment accordingly).
-
-
-## TODO
-
-* Highlight the current (clicked) day
-* Add a wait/loading indicator for during data retrieval
-* Add id property to calendar event
-* Add status property to calendar event (and styles to differentiate display)
-* Refactor towards idiomatic TypeScript
-* Build to a JavaScript library for easier integration with existing projects
-* Minify JavaScript and CSS files
-
